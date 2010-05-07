@@ -2,10 +2,10 @@
 # Config file for sakai3 scripts
 
 # Directories
-SAKAI3_ROOT="/Users/cv268/Projects/Sakai/3akai"
+SAKAI3_ROOT="/Users/oj218/Documents/workspace/sakai"
 SAKAI3_SCRIPTS=${SAKAI3_ROOT}"/scripts"
 SAKAI3_UX=${SAKAI3_ROOT}"/3akai-ux"
-SAKAI3_OPEN_EXPERIMENTS=${SAKAI3_ROOT}"/K2/open-experiments"
+SAKAI3_OPEN_EXPERIMENTS=${SAKAI3_ROOT}"/open-experiments"
 SAKAI3_OSGIKERNEL=${SAKAI3_OPEN_EXPERIMENTS}"/slingtests/osgikernel"
 SAKAI3_TARGET=${SAKAI3_OSGIKERNEL}"/app/target"
 SAKAI3_SLING=${SAKAI3_OSGIKERNEL}"/sling"
