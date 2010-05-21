@@ -3,9 +3,20 @@
 
 source ./config.sh
 
+# Check whether we want to start the camtools repo or the sakai one
+SAKAI3_CAMTOOLS_START=""
+
+while getopts ":c" opt; do
+  case $opt in
+    c)
+      SAKAI3_CAMTOOLS_START="yes"
+      ;;
+  esac
+done
+
 # Kill Java
 echo "// Kill all the java processes"
-killall java
+killall -9 java
 
 # Remove the repository folder
 echo "// Clean the maven repository folders"
@@ -32,20 +43,38 @@ git fetch ieb
 echo "// Merge ieb"
 git merge ieb/master
 
+echo "// Push to your master"
+git push origin master
+
 echo "// Go To osgikernel"
 cd ${SAKAI3_OSGIKERNEL}
 
 echo "// Build K2"
 mvn clean install
-echo "// Build Finished"
+echo "// Build K2 Finished"
 
 # Update 3akai-ux
 cd ${SAKAI3_SCRIPTS}
 source sakaiupdateux.sh
 
-# Start Sakai
-cd ${SAKAI3_SCRIPTS}
-source sakaistart.sh
+if [ $SAKAI3_CAMTOOLS_START ]
+then
+	# Update Camtools
+	cd ${SAKAI3_SCRIPTS}
+	source sakaiupdatecamtools.sh
+	
+	# Build Camtools
+	cd ${SAKAI3_SCRIPTS}
+	source sakaibuildcamtools.sh
+	
+	# Start Camtools
+	cd ${SAKAI3_SCRIPTS}
+	source sakaistartcamtools.sh
+else
+	# Start Sakai
+	cd ${SAKAI3_SCRIPTS}
+	source sakaistart.sh
+fi
 
 # Adjust the fsresource extensions
 cd ${SAKAI3_SCRIPTS}
