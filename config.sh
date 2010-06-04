@@ -19,10 +19,6 @@ SAKAI3_MAVEN_REPOSITORY="/Users/cv268/.m2/repository"
 SAKAI3_MAVEN_REPOSITORY_REMOVE[1]=${SAKAI3_MAVEN_REPOSITORY}"/org/sakaiproject/nakamura"
 SAKAI3_MAVEN_REPOSITORY_REMOVE[2]=${SAKAI3_MAVEN_REPOSITORY}"/org/apache/sling"
 
-# Repositories
-SAKAI3_REPO_CAMTOOLS_FORK="git@github.com:christianv/camtools.git"
-SAKAI3_REPO_CAMTOOLS_MAIN_CONTRIBUTOR="simong"
-SAKAI3_REPO_CAMTOOLS_MAIN="git://github.com/"${SAKAI3_REPO_CAMTOOLS_MAIN_CONTRIBUTOR}"/camtools.git"
 
 # Files
 SAKAI3_LOG_NAKAMURA=${SAKAI3_LOG}"/nakamura.log"
